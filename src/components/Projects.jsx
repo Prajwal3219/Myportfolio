@@ -14,7 +14,7 @@ const Projects = () => {
         'A full-stack blogging platform where users can securely create, manage, and explore blog posts. Built with React, Node.js, Express, and MongoDB.',
       image: 'https://images.pexels.com/photos/262508/pexels-photo-262508.jpeg?auto=compress&cs=tinysrgb&w=600',
       tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-      link: '#',
+      link: 'https://smartblog-hub-ai-assisted-content-a.vercel.app/',
       github: 'https://github.com/Prajwal3219',
       gradient: 'from-blue-500 to-cyan-500',
     },
