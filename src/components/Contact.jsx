@@ -27,21 +27,58 @@ const Contact = () => {
     setSubmitting(true);
     setStatus(null);
     try {
-      const res = await fetch('http://localhost:5000/send', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
-      if (res.ok && data.ok) {
-        setStatus({ ok: true, message: 'Message sent — thank you!' });
-        setFormData({ name: '', email: '', message: '' });
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+      if (web3FormsKey) {
+        // Send using Web3Forms (Serverless direct sending)
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: web3FormsKey,
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            subject: `Portfolio Contact Message from ${formData.name}`,
+          }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          setStatus({ ok: true, message: 'Message sent successfully!' });
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          setStatus({ ok: false, message: data.message || 'Failed to send message via Web3Forms' });
+        }
       } else {
-        setStatus({ ok: false, message: data.error || 'Failed to send message' });
+        // Send using the Express backend
+        const apiBase = import.meta.env.VITE_API_URL ?? '/api';
+        const res = await fetch(`${apiBase}/send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.ok) {
+          if (data.mock) {
+            setStatus({
+              ok: true,
+              message: 'Message simulated! (Logged to local server console. For real emails, configure server/.env or root .env with Web3Forms)',
+            });
+          } else {
+            setStatus({ ok: true, message: 'Message sent — thank you!' });
+          }
+          setFormData({ name: '', email: '', message: '' });
+        } else {
+          setStatus({ ok: false, message: data.error || 'Failed to send message' });
+        }
       }
     } catch (err) {
       console.error('Send error:', err);
-      setStatus({ ok: false, message: err.message || 'Network error' });
+      setStatus({
+        ok: false,
+        message:
+          'Cannot reach the mail server. Make sure you run "npm run server" in a second terminal, or add VITE_WEB3FORMS_ACCESS_KEY to your root .env file for direct serverless sending.',
+      });
     } finally {
       setSubmitting(false);
     }

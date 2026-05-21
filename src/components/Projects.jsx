@@ -24,7 +24,7 @@ const Projects = () => {
         'Real-time news aggregation platform with React that fetches the latest headlines using external APIs. Features category-based filtering and responsive design.',
       image: 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=600',
       tags: ['React', 'API', 'Responsive'],
-      link: '#',
+      link: 'https://news-express-khaki.vercel.app/',
       github: 'https://github.com/Prajwal3219',
       gradient: 'from-purple-500 to-pink-500',
     },
@@ -38,6 +38,16 @@ const Projects = () => {
       github: 'https://github.com/Prajwal3219',
       gradient: 'from-green-500 to-emerald-500',
     },
+    {
+      title: 'Imagify - AI Image Generator',
+      description:
+        'AI-powered image generation platform that creates stunning images from text prompts. Built using React, Node.js, Express, and AI APIs with a modern responsive UI.',
+      image: '/Public/imagify.png',
+      tags: ['React', 'Node.js', 'Express', 'AI', 'MongoDB',"Tailwind css"],
+      link: 'https://imagify-kappa-mocha.vercel.app/',
+      github: 'https://github.com/Prajwal3219',
+      gradient: 'from-purple-500 to-pink-500',
+    }
   ];
 
   return (
@@ -85,15 +95,15 @@ const Projects = () => {
                 animate={
                   hoveredIndex === index
                     ? {
-                        scale: 1.02,
-                        rotateY: 5,
-                        rotateX: 5,
-                      }
+                      scale: 1.02,
+                      rotateY: 5,
+                      rotateX: 5,
+                    }
                     : {
-                        scale: 1,
-                        rotateY: 0,
-                        rotateX: 0,
-                      }
+                      scale: 1,
+                      rotateY: 0,
+                      rotateX: 0,
+                    }
                 }
                 transition={{ duration: 0.3 }}
                 className="relative bg-gray-800/50 backdrop-blur-sm rounded-3xl overflow-hidden border border-gray-700 hover:border-cyan-500/50 transition-all duration-500"
@@ -195,7 +205,12 @@ const Projects = () => {
           className="mt-16 text-center"
         >
           <motion.a
-            href="#"
+            href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById('projects');
+              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white shadow-lg hover:shadow-cyan-500/50 transition-shadow"
