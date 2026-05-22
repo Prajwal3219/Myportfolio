@@ -42,7 +42,7 @@ const Projects = () => {
       title: 'Imagify - AI Image Generator',
       description:
         'AI-powered image generation platform that creates stunning images from text prompts. Built using React, Node.js, Express, and AI APIs with a modern responsive UI.',
-      image: '/Public/imagify.png',
+      image: '/imagify.png',
       tags: ['React', 'Node.js', 'Express', 'AI', 'MongoDB',"Tailwind css"],
       link: 'https://imagify-kappa-mocha.vercel.app/',
       github: 'https://github.com/Prajwal3219',
