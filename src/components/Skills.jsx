@@ -12,8 +12,8 @@ const Skills = () => {
       gradient: 'from-orange-400 to-red-600',
       shadow: 'shadow-orange-500/50',
       skills: [
-        { name: 'Java', percentage: 80 },
-        { name: 'Python (Basic)', percentage: 55 }
+        { name: 'Java', icon: 'bi-cup-hot', color: 'text-orange-500' },
+        { name: 'Python (Basic)', icon: 'bi-code-square', color: 'text-yellow-500' }
       ]
     },
     {
@@ -22,11 +22,11 @@ const Skills = () => {
       gradient: 'from-blue-400 to-indigo-600',
       shadow: 'shadow-blue-500/50',
       skills: [
-        { name: 'React.js', percentage: 75 },
-        { name: 'HTML', percentage: 90 },
-        { name: 'CSS', percentage: 85 },
-        { name: 'Tailwind CSS', percentage: 80 },
-        { name: 'Bootstrap', percentage: 75 }
+        { name: 'React.js', icon: 'bi-browser-chrome', color: 'text-cyan-400' },
+        { name: 'HTML', icon: 'bi-filetype-html', color: 'text-orange-500' },
+        { name: 'CSS', icon: 'bi-filetype-css', color: 'text-blue-500' },
+        { name: 'Tailwind CSS', icon: 'bi-wind', color: 'text-cyan-400' },
+        { name: 'Bootstrap', icon: 'bi-bootstrap', color: 'text-purple-500' }
       ]
     },
     {
@@ -35,8 +35,8 @@ const Skills = () => {
       gradient: 'from-purple-400 to-pink-600',
       shadow: 'shadow-purple-500/50',
       skills: [
-        { name: 'Node.js', percentage: 80 },
-        { name: 'Express.js', percentage: 75 }
+        { name: 'Node.js', icon: 'bi-server', color: 'text-green-500' },
+        { name: 'Express.js', icon: 'bi-cpu', color: 'text-gray-400' }
       ]
     },
     {
@@ -45,7 +45,7 @@ const Skills = () => {
       gradient: 'from-emerald-400 to-teal-600',
       shadow: 'shadow-emerald-500/50',
       skills: [
-        { name: 'MongoDB', percentage: 75 }
+        { name: 'MongoDB', icon: 'bi-database', color: 'text-emerald-500' }
       ]
     },
     {
@@ -54,10 +54,10 @@ const Skills = () => {
       gradient: 'from-yellow-400 to-amber-600',
       shadow: 'shadow-yellow-500/50',
       skills: [
-        { name: 'Git', percentage: 80 },
-        { name: 'GitHub', percentage: 85 },
-        { name: 'Postman', percentage: 75 },
-        { name: 'VS Code', percentage: 90 }
+        { name: 'Git', icon: 'bi-git', color: 'text-red-500' },
+        { name: 'GitHub', icon: 'bi-github', color: 'text-gray-200' },
+        { name: 'Postman', icon: 'bi-send-fill', color: 'text-orange-500' },
+        { name: 'VS Code', icon: 'bi-code-slash', color: 'text-blue-400' }
       ]
     },
     {
@@ -66,7 +66,7 @@ const Skills = () => {
       gradient: 'from-cyan-400 to-blue-600',
       shadow: 'shadow-cyan-500/50',
       skills: [
-        { name: 'Data Structures & Algorithms', percentage: 70 }
+        { name: 'Data Structures & Algorithms', icon: 'bi-diagram-3', color: 'text-pink-500' }
       ]
     }
   ];
@@ -131,7 +131,7 @@ const Skills = () => {
 
               <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 rounded-3xl p-8 border border-gray-700 hover:border-cyan-500/50 transition-all duration-500 h-full flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-4 mb-8">
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
@@ -145,35 +145,19 @@ const Skills = () => {
                     </h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3">
                     {category.skills.map((skill, skillIndex) => (
-                      <div key={skill.name} className="space-y-1.5">
-                        <div className="flex justify-between items-center text-sm">
-                          <span className="text-gray-300 font-medium group-hover:text-white transition-colors">{skill.name}</span>
-                          <span className="text-cyan-400 font-bold text-xs">{skill.percentage}%</span>
-                        </div>
-
-                        <div className="relative h-2 bg-gray-700/50 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            animate={isInView ? { width: `${skill.percentage}%` } : {}}
-                            transition={{ duration: 1.5, delay: 0.3 + (index * 0.1) + (skillIndex * 0.05), ease: 'easeOut' }}
-                            className={`absolute top-0 left-0 h-full bg-gradient-to-r ${category.gradient} rounded-full`}
-                          >
-                            <motion.div
-                              animate={{
-                                x: ['-100%', '100%'],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                ease: 'linear',
-                              }}
-                              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                            ></motion.div>
-                          </motion.div>
-                        </div>
-                      </div>
+                      <motion.div
+                        key={skill.name}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                        transition={{ duration: 0.4, delay: 0.2 + (index * 0.1) + (skillIndex * 0.05) }}
+                        whileHover={{ y: -5, scale: 1.05, boxShadow: '0 8px 25px rgba(34, 211, 238, 0.15)' }}
+                        className="flex items-center gap-2.5 px-4 py-2.5 bg-gray-900/60 border border-gray-800 hover:border-cyan-500/30 hover:bg-gray-800/80 rounded-2xl text-gray-300 hover:text-white transition-all duration-300 cursor-pointer"
+                      >
+                        <i className={`bi ${skill.icon} text-lg ${skill.color}`}></i>
+                        <span className="text-sm font-semibold">{skill.name}</span>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
@@ -209,5 +193,4 @@ const Skills = () => {
     </section>
   );
 };
-
 export default Skills;
