@@ -72,7 +72,7 @@ const Skills = () => {
   ];
 
   return (
-    <section ref={ref} className="relative py-20 bg-gray-900 overflow-hidden">
+    <section id="skills" ref={ref} className="relative py-20 bg-gray-900 overflow-hidden">
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <motion.div
