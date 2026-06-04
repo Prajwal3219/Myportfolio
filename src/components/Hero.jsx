@@ -139,7 +139,7 @@ const Hero = () => {
 
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
               <motion.a
-                href="/resume.pdf"
+                href="/Pk_Resume.pdf"
                 download
                 aria-label="Download CV"
                 whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(34, 211, 238, 0.6)' }}
@@ -180,7 +180,7 @@ const Hero = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 transition-all"
+                  className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-gradient-to-r hover:from-cyan-500 hover:to-blue-600 transition-all"
                 >
                   {social.type === 'svg' ? (
                     <svg

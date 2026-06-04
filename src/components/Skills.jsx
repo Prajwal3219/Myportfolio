@@ -13,7 +13,8 @@ const Skills = () => {
       shadow: 'shadow-orange-500/50',
       skills: [
         { name: 'Java', icon: 'bi-cup-hot', color: 'text-orange-500' },
-        { name: 'Python (Basic)', icon: 'bi-code-square', color: 'text-yellow-500' }
+        { name: 'Python (Basic)', icon: 'bi-code-square', color: 'text-yellow-500' },
+        { name: 'Javascript', icon: 'bi-filetype-js', color: 'text-yellow-500' }
       ]
     },
     {
@@ -23,7 +24,7 @@ const Skills = () => {
       shadow: 'shadow-blue-500/50',
       skills: [
         { name: 'React.js', icon: 'bi-browser-chrome', color: 'text-cyan-400' },
-        { name: 'HTML', icon: 'bi-filetype-html', color: 'text-orange-500' },
+        { name: 'HTML5', icon: 'bi-filetype-html', color: 'text-orange-500' },
         { name: 'CSS', icon: 'bi-filetype-css', color: 'text-blue-500' },
         { name: 'Tailwind CSS', icon: 'bi-wind', color: 'text-cyan-400' },
         { name: 'Bootstrap', icon: 'bi-bootstrap', color: 'text-purple-500' }
@@ -45,7 +46,8 @@ const Skills = () => {
       gradient: 'from-emerald-400 to-teal-600',
       shadow: 'shadow-emerald-500/50',
       skills: [
-        { name: 'MongoDB', icon: 'bi-database', color: 'text-emerald-500' }
+        { name: 'MongoDB', icon: 'bi-database', color: 'text-emerald-500' },
+        { name: 'SQL', icon: 'bi-database', color: 'text-emerald-500' }
       ]
     },
     {
@@ -66,7 +68,10 @@ const Skills = () => {
       gradient: 'from-cyan-400 to-blue-600',
       shadow: 'shadow-cyan-500/50',
       skills: [
-        { name: 'Data Structures & Algorithms', icon: 'bi-diagram-3', color: 'text-pink-500' }
+        { name: 'Data Structures & Algorithms', icon: 'bi-diagram-3', color: 'text-pink-500' },
+        { name: 'REST APIs', icon: 'bi-globe', color: 'text-cyan-400' },
+        { name: 'JWT Authentication', icon: 'bi-shield-lock', color: 'text-emerald-400' },
+        { name: 'CRUD Operations', icon: 'bi-database', color: 'text-blue-400' }
       ]
     }
   ];

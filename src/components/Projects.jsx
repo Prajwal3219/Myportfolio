@@ -205,12 +205,9 @@ const Projects = () => {
           className="mt-16 text-center"
         >
           <motion.a
-            href="#projects"
-            onClick={(e) => {
-              e.preventDefault();
-              const el = document.getElementById('projects');
-              if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }}
+            href="https://github.com/Prajwal3219"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full font-semibold text-white shadow-lg hover:shadow-cyan-500/50 transition-shadow"
